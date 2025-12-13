@@ -8,7 +8,19 @@ The YouBot is a mobile manipulator consisting of:
 - **Mobile Base**: Omnidirectional platform with 4 mecanum wheels
 - **Robotic Arm**: 5-DOF manipulator arm
 - **Gripper**: 2-finger parallel gripper
-- **Sensors**: Hokuyo laser scanner
+
+## Screenshots
+
+### RViz Visualization
+![RViz visualization](rviz.png)
+
+### Gazebo Simulation
+![Gazebo simulation](gazebo.png)
+
+### Demo Video
+https://github.com/user-attachments/assets/gazebo.mp4
+
+[![Watch the demo video](gazebo.png)](gazebo.mp4)
 
 ## Environment
 
