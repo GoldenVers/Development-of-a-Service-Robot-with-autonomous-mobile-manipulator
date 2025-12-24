@@ -37,7 +37,6 @@ def generate_launch_description():
     )
     
     # Robot State Publisher - publishes robot_description topic
-    # Remap joint_states to /youbot/joint_states to receive from Gazebo
     robot_state_publisher = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
@@ -47,9 +46,7 @@ def generate_launch_description():
             'robot_description': robot_description_content,
             'use_sim_time': True
         }],
-        remappings=[
-            ('joint_states', '/youbot/joint_states')
-        ]
+
     )
 
     # Include the Gazebo launch file
@@ -90,15 +87,30 @@ def generate_launch_description():
             output='screen',
             prefix='xterm -e'
         )
+    
+    mecanum = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=[
+            "diff_cont"
+        ]
+    )
+
+    joint_broad = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=[
+            "joint_broad"
+        ]
+    )
 
 
     
     return LaunchDescription([
         gazebo_model_path,
-        robot_state_publisher,
         gazebo,
         spawn_entity,
         rsp,
-        teleop
+        teleop,
 
     ])
